@@ -18,14 +18,13 @@ def bus_stations(request):
         for item in reader:
             bus_station_info = {'Name': item['Name'], 'Street': item['Street'], 'District': item['District']}
             bus_stations_info.append(bus_station_info)
-    list_page = list(range(0, -1000, -1))
     if get_page is None:
         page = 1
         page_down = None
     elif int(get_page) == 1:
         page = 1
         page_down = None
-    elif int(get_page) in list_page:
+    elif int(get_page) <= 0:
         page = 1
         page_down = None
     else:
