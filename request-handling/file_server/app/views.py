@@ -3,7 +3,7 @@ from django.conf import settings
 from django.shortcuts import render
 import os
 from datetime import datetime
-
+from django.http import HttpResponseNotFound
 
 
 
@@ -42,4 +42,5 @@ def file_content(request, name):
             'file_content.html',
             context={'file_name': name, 'file_content': text_str}
     )
-
+    else:
+        return HttpResponseNotFound("Ошибка 404")
