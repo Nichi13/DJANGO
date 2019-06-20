@@ -24,6 +24,9 @@ def bus_stations(request):
     elif int(get_page) == 1:
         page = 1
         page_down = None
+    elif int(get_page) == 0:
+        page = 1
+        page_down = None
     else:
         page = int(get_page)
         page_down = '?' + urlencode({'page': page - 1})
